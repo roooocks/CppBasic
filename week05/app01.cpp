@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	int people = 0;
-	int age = 0;
+	int age, totalPrice = 0;
 	int *ages = NULL; // NULL 넣긴 했는데, 사실 &age 같은걸 넣어서 주소를 받아야 한다. &는 엔퍼센트라고 한다.
 
 	cout << "인원: ";
@@ -28,11 +28,27 @@ int main()
 		*(ages + i) = age; // 주소가 4byte씩 이동한다. void 포인터는 뭐든 받을 수 있어서 내가 타입을 알려야한다.
 	}
 
-	cout << "\n출력" << endl;
+	int kid = 5000, audit = 10000, senior = 7000;
 	for (int i = 0; i < people; i++) {
-		//cout << ages[i] << endl;
-		cout << *(ages + i) << endl;
+		age = *(ages + i); // 귀찮으면 ages[i] 쓰자
+
+		if (age >= 65) {
+			totalPrice = totalPrice + senior;
+		}
+		else if (age >= 20) {
+			totalPrice = totalPrice + audit;
+		}
+		else {
+			totalPrice = totalPrice + kid;
+		}
 	}
+	cout << "총 요금: " << totalPrice << endl;
+
+	//cout << "\n출력" << endl;
+	//for (int i = 0; i < people; i++) {
+	//	//cout << ages[i] << endl;
+	//	cout << *(ages + i) << endl;
+	//}
 
 	// 보통 프로그램 종료되면 해제가 알아서 된다는건 알고 있었을 것이다.
 	// 근데 그걸 자동으로 해주는 친구가 컴파일러가 아니라 OS였다;;
