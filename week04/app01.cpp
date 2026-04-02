@@ -107,8 +107,8 @@ int main()
     Circle circle4(circle2);
     cout << "반지름: " << circle4.getRadius() << endl;
 
-    // cout << Circle::getCount() << "개" << endl;
-    cout << circle3.getCount() << "개" << endl;;
+    // cout << Circle::getCount() << "개" << endl; // 여기서 사용하는 getCount는 Circle클래스 멤버함수로 인스턴스 변수로 사용 가능
+    cout << circle3.getCount() << "개" << endl;; // 단 객체가 죽으면 사용 불가
 
 
     return 0;
