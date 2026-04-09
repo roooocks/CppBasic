@@ -60,7 +60,10 @@ Circle* test() {
     Circle circle6(2.0);
     cout << "test 함수 실행 후 마지막은 " << Circle::getCount() << "개" << endl;
 
-    Circle* circle7 = new Circle(circle6); // allocate heap memory, circle7이 해제되는거지 new Circle은 delete 안해주면 해제 안된다.
+    // 동적 객체(지역 포인터 변수)
+    // allocate heap memory, circle7이 해제되는거지 new Circle은 delete 안해주면 해제 안된다.
+    // 위의 특징 때문에, 함수가 끝나도 해제가 안되고 그렇기 때문에 return으로 반환해서 주소를 전달하는게 가능한 것이다.
+    Circle* circle7 = new Circle(circle6);
     cout << "Circle7 " << Circle::getCount() << "개" << endl;
     cout << circle6.getRadius() << endl;
     // circle7.getRadius() << 이거 객체가 아니라 지역 (포인터) 변수일 뿐이다.
@@ -110,7 +113,8 @@ int main()
 
     Circle* circle7 = test();
     cout << "리턴받은 포인터 주소: " << circle7->getRadius() << endl;
-    delete circle7;
+    delete circle7; // 힙메모리에 할당된 객체 삭제
+    circle7 = nullptr; // 포인터가 가지고 있는 힙메모리 번지 주소를 0으로 초기화
 
     cout << "전역함수 test() 이후는 " << Circle::getCount() << "개" << endl;
 
