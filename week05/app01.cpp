@@ -1,14 +1,14 @@
 ﻿#include <iostream>
 using namespace std;
 
-// heap memory : dynamic memory allocation
+// heap memory : dynamic memory allocation (동적 할당)
 // runtime : 프로그램이 실행되는 동안
 
 int main()
 {
 	int people = 0;
 	int age, totalPrice = 0;
-	int *ages = NULL; // NULL 넣긴 했는데, 사실 &age 같은걸 넣어서 주소를 받아야 한다. &는 엔퍼센트라고 한다.
+	int *ages = nullptr; // NULL 넣긴 했는데, 사실 &age 같은걸 넣어서 주소를 받아야 한다. &는 엔퍼센트라고 한다.
 
 	cout << "인원: ";
 	cin >> people;
