@@ -4,14 +4,14 @@ using namespace std;
 // stack memory : parameters, local variables
 // static(data) memory : global object, static object
 // heap memory : dynamic memory allocation (allocate at running time)
-//  - 값에 접근하기 위해서는 포인터 변수를 사용한다.
+//  - 값에 접근하기 위해서는 포인터 변수로 힙메모리를 가리켜 사용한다.
 //  - 이때 포인터 변수가 사용하는 주소는 Data(Stack) 것을 사용한다.
 
 class Circle
 {
 private:
     double radius;
-    static int count; // 정적 객체 변수. 초기화는 클래스 밖에서 진행
+    static int count; // static object
 
 public:
     // constructor
@@ -62,6 +62,9 @@ void test() {
 
     Circle* circle7 = new Circle(circle6); // allocate heap memory
     cout << "Circle7 " << Circle::getCount() << "개" << endl;
+    cout << circle6.getRadius() << endl;
+    // circle7.getRadius() << 이거 객체가 아니라 지역 (포인터) 변수일 뿐이다.
+    cout << circle7->getRadius() << endl; // 간접 참조. 이게 싫으면 (*circle7).getRadius()
     delete circle7; // free heap memory
     cout << "Circle7 " << Circle::getCount() << "개" << endl;
 }
