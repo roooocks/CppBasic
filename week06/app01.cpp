@@ -4,8 +4,7 @@ using namespace std;
 // stack memory : parameters, local variables
 // static(data) memory : global object, static object
 // heap memory : dynamic memory allocation (allocate at running time)
-//  - 값에 접근하기 위해서는 포인터 변수로 힙메모리를 가리켜 사용한다.
-//  - 이때 포인터 변수가 사용하는 주소는 Data(Stack) 것을 사용한다.
+//  - 값에 접근하기 위해서는 포인터 변수로 힙메모리에 할당된 객체를 가리켜 사용한다.
 
 class Circle
 {
@@ -55,18 +54,21 @@ int Circle::getCount() {
 
 Circle circle5; // global object
 
-void test() {
+// 원래는 void였다.
+Circle* test() {
     cout << "Circle6";
     Circle circle6(2.0);
     cout << "test 함수 실행 후 마지막은 " << Circle::getCount() << "개" << endl;
 
-    Circle* circle7 = new Circle(circle6); // allocate heap memory
+    Circle* circle7 = new Circle(circle6); // allocate heap memory, circle7이 해제되는거지 new Circle은 delete 안해주면 해제 안된다.
     cout << "Circle7 " << Circle::getCount() << "개" << endl;
     cout << circle6.getRadius() << endl;
     // circle7.getRadius() << 이거 객체가 아니라 지역 (포인터) 변수일 뿐이다.
     cout << circle7->getRadius() << endl; // 간접 참조. 이게 싫으면 (*circle7).getRadius()
-    delete circle7; // free heap memory
+    // delete circle7; // free heap memory, OS 단에서 메모리 누수한거 알아서 지워줘서 그런거지 안그런 OS에선 아예 안없어진다.
     cout << "Circle7 " << Circle::getCount() << "개" << endl;
+
+    return circle7;
 }
 
 // getRadius 멤버 함수의 정의
@@ -103,9 +105,13 @@ int main()
     cout << "반지름: " << circle1.getRadius() << endl;
     cout << "넓이: " << circle1.getArea() << endl;
     cout << "둘레: " << circle1.getPerimeter() << endl << endl;
+
     cout << "Circle 1 이후는 " << Circle::getCount() << "개" << endl;
 
-    test();
+    Circle* circle7 = test();
+    cout << "리턴받은 포인터 주소: " << circle7->getRadius() << endl;
+    delete circle7;
+
     cout << "전역함수 test() 이후는 " << Circle::getCount() << "개" << endl;
 
     // 두 번째 circle 객체를 만들고 멤버 함수 호출  
