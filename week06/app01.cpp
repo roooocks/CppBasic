@@ -114,7 +114,11 @@ int main()
     Circle* circle7 = test();
     cout << "리턴받은 포인터 주소: " << circle7->getRadius() << endl;
     delete circle7; // 힙메모리에 할당된 객체 삭제
-    circle7 = nullptr; // 포인터가 가지고 있는 힙메모리 번지 주소를 0으로 초기화
+
+    // 댕글링 포인터(dangling pointer) 문제 방지
+    // 포인터는 그대로 남아있고 이 포인터가 가리킨 주소값(해제해서 없는 쓰레기 값)을 들고 있다.
+    // 이걸 0으로(비유적인 표현이며, 사실상 아무것도 안가리키는 형태로 바꾸는 것) 바꿔준다.
+    circle7 = nullptr;
 
     cout << "전역함수 test() 이후는 " << Circle::getCount() << "개" << endl;
 
