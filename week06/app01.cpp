@@ -2,9 +2,12 @@
 using namespace std;
 
 // stack memory : parameters, local variables
-// static(data) memory : global object, static object
-// heap memory : dynamic memory allocation (allocate at running time)
+// // heap memory : dynamic memory allocation (allocate at running time)
 //  - 값에 접근하기 위해서는 포인터 변수로 힙메모리에 할당된 객체를 가리켜 사용한다.
+// static(data) memory : global object, static object
+//  - BSS: 초기화되지 않은 전역 변수와 정적(static) 변수가 저장되는 곳 (보통 데이터 영역의 일부로 취급하기도 함).
+//  - 데이터 (Data): 초기화된 전역 변수와 정적(static) 변수가 저장되는 곳
+// 코드 : 작성한 소스코드가 기계어로 변환되어 저장되는 곳 (읽기 전용).
 
 class Circle
 {
