@@ -2,8 +2,9 @@
 
 using namespace std;
 
-int main()
+void first()
 {
+	// 1st array : stack memory
 	int rowsColumns[3][5];
 
 	for (int i = 0; i < 3; i++) {
@@ -18,6 +19,43 @@ int main()
 		}
 		cout << endl;
 	}
+}
+
+void second()
+{
+	// 2d array : stack memory & heap memory
+	int columns = 0;
+	int* arr[3]; // stack memory
+
+	cin >> columns;
+
+	for (int i = 0; i < 3; i++) {
+		arr[i] = new int[columns]; // heap memory
+	}
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < columns; j++) {
+			arr[i][j] = i * j;
+		}
+	}
+	cout << endl;
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < columns; j++) {
+			cout << arr[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	for (int i = 0; i < 3; i++) {
+		delete arr[i];
+		arr[i] = nullptr;
+	}
+}
+
+int main()
+{
+	second();
 
 	return 0;
 }
