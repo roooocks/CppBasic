@@ -3,6 +3,19 @@
 
 using namespace std;
 
+size_t myStrlen(const char* text) {
+	// strlen(text) << 이거 직접 만들어보기
+	int count = 0;
+
+	// '\0', 0, NULL << 이건 맘대로
+	// 실제로 NULL을 넣어도 인식이 되어 잘 카운트한다.
+	while (text[count] != '\0') {
+		count += 1;
+	}
+
+	return count;
+}
+
 int main() {
 	// 01. 문자열 기초
 	//cout << "01. 문자열 기초" << endl;
@@ -31,13 +44,23 @@ int main() {
 	//cout << s1 << endl;
 
 	// 03. 문자열에서의 const와 리터럴
-	cout << "03. 문자열에서의 const와 리터럴" << endl;
-	char s1[] = "ACE"; // array compact initializer
-	//char* ps1 = "ACE"; // error
-	const char* ps1 = "ACE"; // string literal
+	//cout << "03. 문자열에서의 const와 리터럴" << endl;
+	//char s1[] = "ACE"; // array compact initializer
+	////char* ps1 = "ACE"; // error
+	//const char* ps1 = "ACE"; // string literal
 
-	cout << s1 << endl;
-	cout << ps1 << endl;
+	//cout << s1 << endl;
+	//cout << ps1 << endl;
+
+	// 04. 문자열과 길이
+	cout << "04. 문자열과 길이" << endl;
+	char s1[] = "ACE";
+	const char* ps1 = "ACE";
+
+	//cout << strlen(s1) << endl;
+	cout << myStrlen(s1) << endl; // or &s1[0] 사용
+	//cout << strlen(ps1) << endl;
+	cout << myStrlen(ps1) << endl; // int myStrlen(const char* text); 사용
 
 	return 0;
 }
