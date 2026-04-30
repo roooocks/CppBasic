@@ -71,6 +71,7 @@ Circle* test() {
     cout << circle6.getRadius() << endl;
     // circle7.getRadius() << 이거 객체가 아니라 지역 (포인터) 변수일 뿐이다.
     cout << circle7->getRadius() << endl; // 간접 참조. 이게 싫으면 (*circle7).getRadius()
+    // 일반 객체는 . (직접 멤버 연산자)를, 포인터 객체는 -> (간접 멤버 연산자)를 사용
     // delete circle7; // free heap memory, OS 단에서 메모리 누수한거 알아서 지워줘서 그런거지 안그런 OS에선 아예 안없어진다.
     cout << "Circle7 " << Circle::getCount() << "개" << endl;
 
