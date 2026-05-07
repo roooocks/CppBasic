@@ -63,5 +63,14 @@ int main()
 	cout << s1 << "/" << s1.capacity() << endl;
 
 
+	cout << "07. string is copy constructor and empty" << endl;
+	string s2(s1); // 복사 생성자 (copy constructor)
+	cout << s2 << "/" << s2.size() << "/" << s2.capacity() << endl;
+
+	cout << s2.empty() << endl;
+	s2.clear();
+	cout << s2.empty() << endl;
+
+
 	return 0;
 }
