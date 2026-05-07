@@ -34,6 +34,13 @@ int main()
 	const char b[] = "Hello"; // compact initializer
 	const char* c = "Hello"; // string literal
 
+	a[1] = 'i';
+	cout << a << endl;
+	//b[1] = 'e'; // error
+	//cout << b << end;
+	cout << c << endl;
+	cout << c[1] << endl;
+	//c[1] = 'e'; // error
 
 	return 0;
 }
