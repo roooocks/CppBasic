@@ -30,6 +30,8 @@ int myStrcmp(const char* a, const char* b)
 
 int main()
 {
+	// char[] 받고 int형 포인터로 int 받아보기
+
 	//cout << "05. custom comparing(strcmp, strncmp)" << endl;
 	//const char* s1 = "Hi Daelim";
 	//const char* s2 = "Hi Daeli";

@@ -18,7 +18,7 @@ int main()
 	//cout << strcmp(a, b) << endl; // 0(똑같음) / -1, 1(두 문자열이 다를 때)
 	//cout << (c == d) << endl; // 1(true), 0(false)
 
-	//// a = "XYZ" // error
+	//// a = "XYZ" // error, 단 a[0] = 'a'는 된다.
 	//c = "XYZ!"; // success
 	//cout << c << endl;
 
