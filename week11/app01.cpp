@@ -49,11 +49,16 @@ int main()
 
 
 	// 2. reserve
-	string s2 = "abcd"; // 만약 getline이 아닌데, cin이라면 띄어쓰기에서 컷당하고 reverse된다.
-	cout << s2 << endl;
-	reverse(s2);
-	cout << s2 << endl;
+	//string s2 = "abcd"; // 만약 getline이 아닌데, cin이라면 띄어쓰기에서 컷당하고 reverse된다.
+	//cin >> s2;
+	//cout << s2 << endl;
+	//reverse(s2);
+	//cout << s2 << endl;
 
+
+	// 급해서 패스를 많이 하셨다.
+	// 문서에 사진 넣어놨는데, 예제 아니면 읽어보기만 해도 될 듯 하다.
+	// 동작 방식을 많이 알아두자
 
 	return 0;
 }
