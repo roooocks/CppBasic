@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
@@ -34,8 +35,15 @@ int main()
 	//cout << s2 << endl;
 
 	// 버퍼 비우기 (남아있는 값을 제거)
-	// flush(getline이 받은 상태에서 다음 getline을 사용하는 경우) 해결을 위해 사용
-	//cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // getline으로 건드린 cin 초기화. flush 방식
+	// flush 방식을 여기서 배운다. 버퍼의 남은 값을 강제로 출력 시켜서 버퍼를 비워버린다. (개행도 안함)
+	//  - std::endl => 개행 + flush
+	//  - std::flush => flush만
+
+	// 근데 수업에서 배운건 flush가 아니다. 그냥 버퍼에 남거나 남을 수 있는 '\n'을 지우는거다.
+	// cin >> x;를 생각해보자. 이건 개행 전까지만 받고 이후에 개행은 입력 버퍼(cin)에 남기는 거다.
+	// 이걸 없에려고 쓰는게 cin.ignore()이고 보통이걸 쓴다고 한다.
+	// getline은 보통 뒤에 개행을 안남겨서 getline 전에 쓰는거라고 한다.
+	//cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	//getline(cin, s2);
 	//cout << s2 << endl;
 
@@ -45,7 +53,7 @@ int main()
 	//getline(cin, s2);
 	//cout << s2 << endl;
 	//cout << s2[1] << endl;
-	//cout << s2.at(1) << endl;
+	//cout << s2.at(1) << endl; // 함수 방식
 
 
 	// 2. reserve
