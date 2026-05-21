@@ -8,6 +8,10 @@ class Pokemon
 private:
     long hp;
 public:
+    Pokemon(): hp(1) {}
+    Pokemon(int hp): hp(hp) {}
+    Pokemon(const Pokemon& pokemon) : hp(pokemon.hp) {}
+
     void set(long hp);
     long getHp() const;
 };
@@ -28,6 +32,11 @@ class Pickachu : public Pokemon
 private:
     int electric_attack;
 public:
+    // Invocation (부모 클래스의 기능을 명시적으로 호출하는 것)
+    Pickachu(): Pokemon(), electric_attack(10) {}
+    Pickachu(int hp, int electric_attack): Pokemon(hp), electric_attack(electric_attack) {}
+    Pickachu(const Pickachu& pickachu): Pokemon(pickachu), electric_attack(pickachu.electric_attack) {}
+
     void set(int hp, int damage) // 오버로딩, 오버라이딩 관련 내용
     {
         // this->hp = hp;   // hp는 private
@@ -50,18 +59,34 @@ public:
 
 int main()
 {
-    // Pokemon 객체 인스턴스화하고 사용
-    Pokemon pokemon;
-    pokemon.set(100);
-    cout << "Pokemon 객체의 정보: " << endl;
-    cout << "포켓몬의 체력: " << pokemon.getHp();
-    cout << endl << endl;
-    // Pickachu 클래스 인스턴스화하고 사용
-    Pickachu pickachu;
-    pickachu.set(150, 23);
-    //pickachu.setElectricAttack(23);
-    cout << "Pickachu 객체의 정보: " << endl;
-    cout << "피카츄의 체력: " << pickachu.getHp() << endl;
-    cout << "피카츄의 전기 공격: " << pickachu.getElectricAttack();
+    // Invocation 이전
+    //// Pokemon 객체 인스턴스화하고 사용
+    //Pokemon pokemon;
+    //pokemon.set(100);
+    //cout << "Pokemon 객체의 정보: " << endl;
+    //cout << "포켓몬의 체력: " << pokemon.getHp();
+    //cout << endl << endl;
+
+    //// Pickachu 클래스 인스턴스화하고 사용
+    //Pickachu pickachu;
+    //pickachu.set(150, 23);
+    ////pickachu.setElectricAttack(23);
+    //cout << "Pickachu 객체의 정보: " << endl;
+    //cout << "피카츄의 체력: " << pickachu.getHp() << endl;
+    //cout << "피카츄의 전기 공격: " << pickachu.getElectricAttack();
+
+
+    // Invocation 이후
+    //Pickachu pickachu; // 1. 일반 생성자
+    //cout << pickachu.getHp() << endl;
+    //cout << pickachu.getElectricAttack() << endl;
+
+    Pickachu pickachu(500, 4000); // 2. 매개변수 생성자
+    //cout << pickachu.getHp() << endl;
+    //cout << pickachu.getElectricAttack() << endl;
+
+    Pickachu pickachu2(pickachu); // 3. 복사 생성자
+    cout << pickachu2.getHp() << endl;
+    cout << pickachu2.getElectricAttack() << endl;
     return 0;
 }
