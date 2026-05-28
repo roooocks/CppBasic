@@ -10,6 +10,7 @@
 
 #ifndef POKEMON_H
 #define POKEMON_H
+//class Pokemon final // 다른 곳에서 상속 불가
 class Pokemon
 {
 private:
