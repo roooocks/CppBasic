@@ -36,7 +36,7 @@ int main() {
 	//cout << "02. 문자열과 포인터" << endl;
 	//char* ps1 = s1; // &s1[0]도 가능하다.
 	//cout << *ps1 << endl;
-	//cout << ps1 << endl;
+	//cout << ps1 << endl; // cout에서 알아서 char* 감지하고 다 출력해버린다.
 	//cout << *s1 << endl;
 	//cout << s1[1] << endl;
 	//cout << *(ps1 + 1) << endl;

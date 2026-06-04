@@ -1,7 +1,7 @@
 ﻿//#pragma once
 
 // #pragma once가 요즘 모던한 방식인데, 아래 방식은 옛날 방식이다.
-// 중복 포함 방지를 하는 역할을 해준다.
+// 중복 포함(include) 방지를 하는 역할을 해준다.
 
 // #ifndef FILE_NAME
 // #define FILE_NAME

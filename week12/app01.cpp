@@ -40,7 +40,10 @@ public:
     void set(int hp, int damage) // 오버로딩, 오버라이딩 관련 내용
     {
         // this->hp = hp;   // hp는 private
-        Pokemon::set(hp); // Delegation 방식
+        
+        // // Delegation (자식이 직접 구현하거나 처리하지 않고, 그 책임을 부모(또는 다른 객체)에게 맡기는 설계 방식)
+        // HP 설정 책임을 Pokemon에게 맡겼다 (Invocation도 포함이긴하다;;)
+        Pokemon::set(hp);
 
         electric_attack = damage;
         // assert(gpa >= 0 && gpa <= 4.5); // if문인데 안맞으면 에러 띄운다.
